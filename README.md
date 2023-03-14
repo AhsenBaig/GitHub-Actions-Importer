@@ -46,13 +46,35 @@
 > gh actions-importer -h
 >```
 
-## [Audit](https://github.blog/2022-11-10-introducing-github-actions-importer/#1-plan-the-timeline-and-complexity-of-the-migration)
+## Configure
+>```cmd
+> gh actions-importer configure
+>```
+> NOTE: Selecting each option will prompt for configurations and Personal Access Token (PAT) information.
+>```
+>? Which CI providers are you configuring?: Hit <space> to select, <ctrl+a> to toggle all, <ctrl+i> to invert selection
+>  ◉ Azure DevOps
+>  ◉ CircleCI
+>  ◉ GitLab CI
+>  ◉ Jenkins
+>  ◉ Travis CI
+>
+>```
+
+## Update
+>```cmd
+> gh actions-importer update
+>```
+
+## Usage
+
+### [Audit](https://github.blog/2022-11-10-introducing-github-actions-importer/#1-plan-the-timeline-and-complexity-of-the-migration)
 >GitHub Actions Importer provides an audit command that is designed to help analyze the complexity of a potential migration, which can be used to formulate a migration plan. This command will fetch all of the pipelines defined in a specified scope of the existing CI/CD environment, attempt a conversion of these pipelines to their equivalent workflow, and write a summary report with statistics gathered from the audit.
 >```cmd
 > gh actions-importer audit jenkins --output-dir .
 >```
 
-## [Dry-run](https://github.blog/2022-11-10-introducing-github-actions-importer/#4-customize-a-workflows-conversion)
+### [Dry-run](https://github.blog/2022-11-10-introducing-github-actions-importer/#4-customize-a-workflows-conversion)
 
 > You can use the dry-run command to convert an existing pipeline to its equivalent GitHub Actions workflow. The console output of the command will list the path to the file or files that GitHub Actions Importer generated. Before migrating, you should perform a dry run of a pipeline and validate the contents are suitable.
 > gh actions-importer dry-run jenkins --source-url $SOURCE_URL --output-dir 
